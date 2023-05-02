@@ -1,3 +1,9 @@
+.ChoixAprèsEnregistrement {
+    scale: 200%;
+    text-align: center;
+    margin-top: 200px;
+    align-items: center;
+}
 /*.titre_page{
     display: flex;
     justify-content: center;

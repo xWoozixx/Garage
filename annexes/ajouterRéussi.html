@@ -14,7 +14,7 @@
         </a>
         <nav class="menu">
             <ul>
-                <li><a class="bouton" href="/index.html">Accueil</a></li>
+                <li><a class="bouton" href="../index.html">Accueil</a></li>
                 <li><a class="bouton" href="ajouter.html">Temporaire AjouterVoiture</a></li>
                 <li><a class="bouton" href="blank2.html">Page2</a></li>
             </ul>
@@ -22,19 +22,13 @@
     </header>
     <body id="haut_de_page">
         <section class="contenu">
+            <div class="ChoixAprèsEnregistrement">
+                <h1>Véhicule enregistré avec succès.</h1>
             <br><br>
-            <form method="post" action="../php/addVehicule.php">
-                <label for="immatriculation">Immatriculation :</label>
-                <input type="number" id="immatriculation" name="immatriculation" min="0" max="999999" placeholder="Ex: 123456" required><br>
-              
-                <label for="description">Description :</label>
-                <textarea id="description" name="description" placeholder="Rapide description du véhicule"></textarea><br>
-              
-                <label for="date">Date :</label>
-                <input type="date" id="date" name="date" required><br>
-              
-                <input type="submit" value="Valider">
-              </form>
+                <a class="bouton" href="ajouter.html">Enregistrer d'autres véhicules</a><br><br>
+                <a class="bouton" href="../index.html">Retourner à l'Accueil</a>
+            
+            </div>
         </section>
     </body>
     <footer>

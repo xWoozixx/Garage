@@ -12,11 +12,12 @@ $description = mysqli_real_escape_string($conn, $description);
 $date = mysqli_real_escape_string($conn, $date);
 
 // Créer la requête SQL pour insérer les données dans la table des véhicules
-$requete = "INSERT INTO test (IMMAT, DESC, DateEntréeGarage) VALUES ('$immatriculation', '$description', '$date')";
+$requete = "INSERT INTO test (IMMAT, DESCRIPTION, DateEntréeGarage) VALUES ('$immatriculation', '$description', '$date')";
 
 // Exécuter la requête SQL
 if (mysqli_query($conn, $requete)) {
-  echo "Véhicule enregistré avec succès.";
+  //echo "Véhicule enregistré avec succès.";
+  header('Location: ../annexes/ajouterRéussi.html');
 } else {
   echo "Erreur: " . mysqli_error($conn);
 }
