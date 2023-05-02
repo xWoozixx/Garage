@@ -1,5 +1,7 @@
 /*Règles de base de la page*/
-
+section *{
+font-size: 20px;
+}
 body{
     background-attachment: fixed;
     background-color: #0128b5;
@@ -10,7 +12,7 @@ body *{
     /*border: 1px solid red;/*affiche toutes les boîtes*/
 
     font-family: 'Ubuntu', sans-serif;/* police et couleur du texte*/
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     text-decoration: none;
     padding: 0px;
     margin: 0px;
