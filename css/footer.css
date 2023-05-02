@@ -1,0 +1,11 @@
+footer{
+    background-color: rgba(25, 25, 25, 90%);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position:fixed;/*fixer les boutons sur la page*/
+    display: flex;/*Ajuster la taille du footer aux boutons*/
+    align-items: center;
+    padding-left:15px;
+    z-index: 1;    /*mettre en premier plan*/
+}
