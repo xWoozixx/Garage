@@ -4,7 +4,7 @@ font-size: 20px;
 }
 body{
     background-attachment: fixed;
-    background-color: #0128b5;
+    background-color: #221202;
     padding: 0px;
     margin: 0px;
 }
@@ -12,7 +12,7 @@ body *{
     /*border: 1px solid red;/*affiche toutes les boîtes*/
 
     font-family: 'Ubuntu', sans-serif;/* police et couleur du texte*/
-    color:rgb(0, 0, 0);
+    color:rgb(255, 0, 0);
     text-decoration: none;
     padding: 0px;
     margin: 0px;
