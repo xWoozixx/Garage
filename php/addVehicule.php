@@ -1,24 +1,31 @@
 <?php
 include "connect.php";
 
-// Récupérer les valeurs du formulaire
-$immatriculation = $_POST["immatriculation"];
-$description = $_POST["description"];
-$date = $_POST["date"];
+// Récupérer les valeurs du formulaire ET Échapper les caractères spéciaux pour éviter les injections SQL
+$immatriculation = mysqli_real_escape_string($conn, $_POST["immatriculation"]);
+$marque = mysqli_real_escape_string($conn, $_POST["marque"]);
+$modele = mysqli_real_escape_string($conn, $_POST["modele"]);
+$dateC = mysqli_real_escape_string($conn, $_POST["dateC"]);
+$prixVente = mysqli_real_escape_string($conn, $_POST["prixVente"]);
+$dateEntreeGarage = mysqli_real_escape_string($conn, $_POST["dateEntreeGarage"]);
+$chevauxF = mysqli_real_escape_string($conn, $_POST["chevauxF"]);
+$description = mysqli_real_escape_string($conn, $_POST["description"]);
 
-// Échapper les caractères spéciaux pour éviter les injections SQL
-$immatriculation = mysqli_real_escape_string($conn, $immatriculation);
-$description = mysqli_real_escape_string($conn, $description);
-$date = mysqli_real_escape_string($conn, $date);
+$requeteMarqueId = "SELECT id FROM `marques` WHERE nom='$marque'";
+$resultatMarqueId = mysqli_query($conn, $requeteMarqueId);
+$marqueId = mysqli_fetch_assoc($resultatMarqueId)['id'];
+
+$values = "('$immatriculation', $marqueId, '$modele', '$dateC',  $prixVente, '$dateEntreeGarage', $chevauxF, '$description')";
 
 // Créer la requête SQL pour insérer les données dans la table des véhicules
-$requete = "INSERT INTO test (IMMAT, DESCRIPTION, DateEntréeGarage) VALUES ('$immatriculation', '$description', '$date')";
-
+// table de test $requete = "INSERT INTO test (IMMAT, DESCRIPTION, DateEntréeGarage) VALUES ('$immatriculation', '$description', '$date')";
+$requete = "INSERT INTO stock (IMMAT, marque_id, modele, dateCirculation, prixVente, DateEntreeGarage, chevauxF, DESCRIPTION) VALUES $values";
 // Exécuter la requête SQL
 if (mysqli_query($conn, $requete)) {
   //echo "Véhicule enregistré avec succès.";
-  header('Location: ../annexes/ajouterRéussi.html');
+  header('Location: ../annexes/ajouterRéussi.html');//redirection si ajout réussi
 } else {
+  echo ($marque);
   echo "Erreur: " . mysqli_error($conn);
 }
 
