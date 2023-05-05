@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Garage</title>
-        <link rel="stylesheet" href="../css/index.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/body.css">
-        <link rel="stylesheet" href="../css/footer.css">
-        <meta charset="utf-8">
-    </head>
-    <header>
-        <a class="logo" href="../index.html">
-            <h1>Garage</h1>
-        </a>
-        <nav class="menu">
-            <ul>
-                <li><a class="bouton" href="../index.html">Accueil</a></li>
-                <li><a class="bouton" href="ajouter.php">Temporaire AjouterVoiture</a></li>
-                <li><a class="bouton" href="blank2.html">Page2</a></li>
-            </ul>
-        </nav>
-    </header>
+    <title>Garage</title>
+    <?php include_once 'include/head.php'?>
+    <?php include_once 'include/header.php'?>
+    
     <body id="haut_de_page">
         <section class="contenu">
             <br>
@@ -43,7 +27,7 @@
                 <label for="supprMarque">Pour SUPPRIMER une marque selectionnez-la<br></label>
                 <select name="supprMarque" required>
                 <?php
-                include "connect.php";
+                include "include/connect.php";
                 $requete = "SELECT * FROM `marques`";
                 $marques=mysqli_query($conn, $requete);
                 while ($row = mysqli_fetch_assoc($marques)) {
@@ -58,7 +42,5 @@
         </section>
 
     </body>
-    <footer>
-        <a href="about.html" class="bouton">© Garage 2023 "lien à la page about qui donnera des informations useless et le contact"</a>
-    </footer>
+    <?php include_once 'include/footer.php'?>
 </html>
