@@ -1,9 +1,9 @@
 footer{
-    background-color: rgba(25, 25, 25, 90%);
+    position: fixed;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    position:fixed;/*fixer les boutons sur la page*/
+    background-color: rgba(25, 25, 25, 90%);
     display: flex;/*Ajuster la taille du footer aux boutons*/
     align-items: center;
     padding-left:15px;
