@@ -11,7 +11,7 @@
             <br><br>
             <a class="bouton" href="ajouterMarque.php">Temporaire Gestion des marques</a>
             <br><br><br>
-            <form method="post" action="../php/addVehicule.php">
+            <form method="post" action="php/addVehicule.php">
                 <label for="immatriculation">Immatriculation :</label>
                 <input type="text" id="immatriculation" name="immatriculation" pattern="[0-9]{6}NC" placeholder="Ex: 123456NC" required> Pour 1 000 NC renseigner 001000NC<br>
                 
