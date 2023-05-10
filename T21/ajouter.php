@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <title>Garage</title>
-    <?php include_once 'include/head.php'?>
-    <?php include_once 'include/header.php'?>
+    <title>Garage 21</title>
+    <?php include_once '../include/T_head.php'?>
+    <?php include_once '../include/T_header.php'?>
 
     <body id="haut_de_page">
         <section class="contenu">
             <br>
             <h1>Attentien à ne pas ajouter d'espaces inutiles</h1>
             <br><br>
-            <a class="bouton" href="ajouterMarque.php">Temporaire Gestion des marques</a>
+            
+            <form method="post" action="rechercherVoiture">
+            <label for="rechercheImmatriculation">Rechercher par immatriculation :</label>
+            <input type="text" id="rechercheImmatriculation" name="rechercheImmatriculation" pattern="[0-9]{6}NC" placeholder="Ex: 123456NC">
+            <button type="submit">Rechercher</button>
+            </form>
+            
             <br><br><br>
             <form method="post" action="php/addVehicule.php">
                 <label for="immatriculation">Immatriculation :</label>
@@ -18,7 +24,7 @@
                 <label for="marque">Marque :</label>
                 <select name="marque" required>
                 <?php
-                include "include/connect.php";
+                include "../include/connect.php";
                 $requete = "SELECT * FROM `marques`";
                 $marques=mysqli_query($conn, $requete);
                 while ($row = mysqli_fetch_assoc($marques)) {
@@ -64,5 +70,5 @@
             }
             </script>
     </body>
-    <?php include_once 'include/footer.php'?>
+    <?php include_once '../include/footer.php'?>
 </html>

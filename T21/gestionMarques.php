@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <title>Garage</title>
-    <?php include_once 'include/head.php'?>
-    <?php include_once 'include/header.php'?>
+    <title>Garage 21</title>
+    <?php include_once '../include/T_head.php'?>
+    <?php include_once '../include/T_header.php'?>
     
     <body id="haut_de_page">
         <section class="contenu">
             <br>
-            <h1>Temporaire ! <br><br> Attentien à ne pas ajouter d'espaces inutiles</h1>
+            <h1>Temporaire ! Design à changer<br><br> Attentien à ne pas ajouter d'espaces inutiles</h1>
             <br><br>
             <div>
             <h1>Ajouter</h1><br>
@@ -18,6 +18,7 @@
                 Appuyez sur le bouton pour valider l'ajout <br>
                 <input type="submit" value="Ajouter cette marque">
                 </form>
+                <h1>
                 <?php // message si ajout réussi ou message d'erreur 
                 session_start();
                 if (isset($_SESSION['message'])) {
@@ -25,6 +26,7 @@
                 unset($_SESSION['message']); // pour ne pas afficher le message plusieurs fois
                 }
                 ?>
+                </h1>
             </div>
             <br><br><br><br>
             <h1>Supprimer <br><br> Avant de supprimer assurez vous de ne plus avoir de voitures de cette marque</h1><br><br>
@@ -33,7 +35,7 @@
                 <label for="supprMarque">Pour SUPPRIMER une marque selectionnez-la<br></label>
                 <select name="supprMarque" required>
                 <?php
-                include "include/connect.php";
+                include "../include/connect.php";
                 $requete = "SELECT * FROM `marques`";
                 $marques=mysqli_query($conn, $requete);
                 while ($row = mysqli_fetch_assoc($marques)) {
@@ -48,5 +50,5 @@
         </section>
 
     </body>
-    <?php include_once 'include/footer.php'?>
+    <?php include_once '../include/footer.php'?>
 </html>
