@@ -37,9 +37,9 @@ $description = $row['description'];
 
 echo "<br><h1>Véhicule immatriculé <strong>". $immatriculation."</strong></h1><br><br>";
 mysqli_close($conn);
-?><br>
+?>
+<h1>Modifier </h1><br><br>
 
-<h1>Modifier </h1>
             <form method="post" action="php/addVehicule.php">
                 <input type='hidden' id="immatriculation" name="immatriculation" pattern="[0-9]{6}NC" value="<?php echo $immatriculation; ?>" required>
                 
