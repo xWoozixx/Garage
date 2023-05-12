@@ -1,24 +1,38 @@
 <?php
-include "../../include/connect.php";
+require_once "../../include/connect.php";
+session_start();
 
-if(isset($_POST['search'])) {
-  $immatriculation = $_POST['immatriculation'];
-  
-  $requete = "SELECT * FROM vehicules WHERE immatriculation = '$immatriculation'";
+// Vérifie si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // Récupère l'immatriculation saisie dans le formulaire
+  $immatriculation = $_POST["rechercheImmatriculation"];
+
+  $requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
   $resultat = mysqli_query($conn, $requete);
-  
+if ($resultat) { 
   if(mysqli_num_rows($resultat) == 1) {
     $row = mysqli_fetch_assoc($resultat);
-    $marque = $row['marque'];
+    $marque = $row['marque_id'];
     $modele = $row['modele'];
-    $dateC = $row['date_circulation'];
-    $prixVente = $row['prix_vente'];
-    $dateEntreeGarage = $row['date_entree_garage'];
-    $chevauxF = $row['chevaux_fiscaux'];
+    $dateC = $row['dateCirculation'];
+    $prixVente = $row['prixVente'];
+    $dateEntreeGarage = $row['dateEntreeGarage'];
+    $chevauxF = $row['chevauxF'];
     $description = $row['description'];
+    $url = "../rechercherVoiture.php ?immatriculation=" . urlencode($immatriculation);
+    $_SESSION['message'] = $immatriculation;
+    echo "URL: " . $url; // Affiche l'URL pour vérification
+    header('Location: ../rechercherVoiture.php');//redirection si Véhicule
   } else {
-    echo "Aucun véhicule trouvé avec cette immatriculation.";
+    $_SESSION['message'] = "Aucun véhicule trouvé avec cette immatriculation.";
+    header('Location: ../ajouter.php');//redirection
   }
+}
+  else{
+    echo "Erreur lors de la requête : " . mysqli_error($conn);
+  }
+
 }
 
 mysqli_close($conn);

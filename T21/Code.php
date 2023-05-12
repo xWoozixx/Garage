@@ -71,3 +71,21 @@ $identifiant = $_SESSION["identifiant"];
 // Afficher le contenu personnalisé pour l'utilisateur connecté
 echo "Bienvenue, $identifiant !";
 ?>
+
+// Récupère l'immatriculation saisie dans le formulaire
+    $immatriculation = $_POST["rechercheImmatriculation"];
+
+    $requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
+    $resultat = mysqli_query($conn, $requete);
+    if ($resultat) {
+
+    if(mysqli_num_rows($resultat) == 1) {
+        
+    $row = mysqli_fetch_assoc($resultat);
+    $marque = $row['marque_id'];
+    $modele = $row['modele'];
+    $dateC = $row['dateCirculation'];
+    $prixVente = $row['prixVente'];
+    $dateEntreeGarage = $row['dateEntreeGarage'];
+    $chevauxF = $row['chevauxF'];
+    $description = $row['description'];

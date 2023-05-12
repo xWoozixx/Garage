@@ -20,10 +20,16 @@ if (!isset($_SESSION["login"])) {
             <h1>Attentien à ne pas ajouter d'espaces inutiles</h1>
             <br><br>
             
-            <form method="post" action="rechercherVoiture">
+            <form method="post" action="php/rechercherVehicule">
             <label for="rechercheImmatriculation">Rechercher par immatriculation :</label>
             <input type="text" id="rechercheImmatriculation" name="rechercheImmatriculation" pattern="[0-9]{6}NC" placeholder="Ex: 123456NC">
             <button type="submit">Rechercher</button>
+            <?php // message si ajout réussi ou message d'erreur 
+                if (isset($_SESSION['message'])) {
+                echo "<p>" . $_SESSION['message'] . "</p>";
+                unset($_SESSION['message']); // pour ne pas afficher le message plusieurs fois
+                }
+                ?>
             </form>
             
             <br><br><br>
@@ -44,7 +50,7 @@ if (!isset($_SESSION["login"])) {
                 </select>
                 <br>
                 <label for="modele">Modèle :</label>
-                <input type="text" id="modele" name="modele" pattern="^[a-zA-Z0-9]  {1,20}$" placeholder="Ex: Clio" required> Uniquement des lettres et 20 max<br>
+                <input type="text" id="modele" name="modele" pattern="^[a-zA-Z0-9]{1,20}$" placeholder="Ex: Clio" required> Uniquement des lettres et 20 max<br>
               
                 <label for="dateC">Date de première mise en circulation du véhicule :</label>
                 <input type="date" id="dateC" name="dateC" required><br>

@@ -6,10 +6,9 @@
   <nav class="menu">
     <ul>
       <!--
-      <li><a class="bouton" href="index.php">Accueil</a></li>
-      <li><a class="bouton" href="vehicules.php">Stock</a></li>
-      -->
       <li><a class="bouton" href="rechercherVoiture.php">Rechercher Voiture</a></li>
+      -->
+      
       <li><a class="bouton" href="ajouter.php">Ajouter Voiture</a></li>
       <li><a class="bouton" href="gestionMarques.php">Gestion marques</a></li>
     </ul>

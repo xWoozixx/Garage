@@ -20,41 +20,26 @@ if (!isset($_SESSION["login"])) {
             <div>
 <?php
 include "../include/connect.php";
+// Récupère l'immatriculation saisie dans le formulaire
+$immatriculation = $_SESSION['message'];
 
-// Vérifie si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Récupère l'immatriculation saisie dans le formulaire
-    $immatriculation = $_POST["rechercheImmatriculation"];
-
-    $requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
-    $resultat = mysqli_query($conn, $requete);
-    if ($resultat) {
-
-    if(mysqli_num_rows($resultat) == 1) {
-        
-    $row = mysqli_fetch_assoc($resultat);
-    $marque = $row['marque_id'];
-    $modele = $row['modele'];
-    $dateC = $row['dateCirculation'];
-    $prixVente = $row['prixVente'];
-    $dateEntreeGarage = $row['dateEntreeGarage'];
-    $chevauxF = $row['chevauxF'];
-    $description = $row['description'];
+$requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
+$resultat = mysqli_query($conn, $requete);
     
-    echo "<br><h1>Véhicule immatriculé <strong>". $immatriculation."</strong></h1><br><br>";
+$row = mysqli_fetch_assoc($resultat);
+$marque = $row['marque_id'];
+$modele = $row['modele'];
+$dateC = $row['dateCirculation'];
+$prixVente = $row['prixVente'];
+$dateEntreeGarage = $row['dateEntreeGarage'];
+$chevauxF = $row['chevauxF'];
+$description = $row['description'];
 
-  } else {
-    echo "Aucun véhicule trouvé avec cette immatriculation.";
-  }
-}
-else{
-    echo "Erreur lors de la requête : " . mysqli_error($conn);
-}
-}
-
+echo "<br><h1>Véhicule immatriculé <strong>". $immatriculation."</strong></h1><br><br>";
 mysqli_close($conn);
 ?><br>
+
+<h1>Modifier </h1>
             <form method="post" action="php/addVehicule.php">
                 <input type='hidden' id="immatriculation" name="immatriculation" pattern="[0-9]{6}NC" value="<?php echo $immatriculation; ?>" required>
                 
