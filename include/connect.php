@@ -12,7 +12,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die('Connection failed: ' . mysqli_connect_error());
 }
-?>
 // (' . mysqli_connect_errno() . ') 
 // Passage de la connexion en utf8
 //mysqli_set_charset($cnx, 'utf8');
+?>
+
