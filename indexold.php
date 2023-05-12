@@ -9,23 +9,14 @@
 
             <div class="test">
                 <img src="images/raox.jpg" alt="">
-                <p>marque</p>
-                <p>imatriculation</p>
-
             </div>
 
             <div class="test">
                 <img src="images/jimmy.jpg" alt="">
-                <p>marque</p>
-                <p>imatriculation</p>
-
             </div>
 
             <div class="test">
                 <img src="images/multiplat.jpg" alt="">
-                <p>marque</p>
-                <p>imatriculation</p>
-                <p>jong</p>
             </div>
 
         </section>
