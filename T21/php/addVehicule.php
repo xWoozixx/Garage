@@ -1,5 +1,5 @@
 <?php
-include "../include/connect.php";
+include "../../include/connect.php";
 
 // Récupérer les valeurs du formulaire ET Échapper les caractères spéciaux pour éviter les injections SQL
 $immatriculation = mysqli_real_escape_string($conn, $_POST["immatriculation"]);
@@ -23,7 +23,7 @@ $requete = "INSERT INTO stock (IMMAT, marque_id, modele, dateCirculation, prixVe
 // Exécuter la requête SQL
 if (mysqli_query($conn, $requete)) {
   //echo "Véhicule enregistré avec succès.";
-  header('Location: ../ajouterRéussi.php');//redirection si ajout réussi
+  header('Location: ../ajouter.php');//redirection si ajout réussi
 } else {
   echo ($marque);
   echo "Erreur: " . mysqli_error($conn);

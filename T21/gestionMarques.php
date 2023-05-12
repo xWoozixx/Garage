@@ -1,8 +1,18 @@
+<?php
+session_start();
+
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION["login"])) {
+    // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    header("Location: ../T21.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
     <title>Garage 21</title>
-    <?php include_once '../include/T_head.php'?>
-    <?php include_once '../include/T_header.php'?>
+    <?php include_once 'include/T_head.php'?>
+    <?php include_once 'include/T_header.php'?>
     
     <body id="haut_de_page">
         <section class="contenu">
@@ -20,7 +30,6 @@
                 </form>
                 <h1>
                 <?php // message si ajout réussi ou message d'erreur 
-                session_start();
                 if (isset($_SESSION['message'])) {
                 echo "<p>" . $_SESSION['message'] . "</p>";
                 unset($_SESSION['message']); // pour ne pas afficher le message plusieurs fois

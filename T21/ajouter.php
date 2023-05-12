@@ -1,8 +1,18 @@
+<?php
+session_start();
+
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION["login"])) {
+    // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    header("Location: ../T21.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
     <title>Garage 21</title>
-    <?php include_once '../include/T_head.php'?>
-    <?php include_once '../include/T_header.php'?>
+    <?php include_once 'include/T_head.php'?>
+    <?php include_once 'include/T_header.php'?>
 
     <body id="haut_de_page">
         <section class="contenu">
@@ -34,7 +44,7 @@
                 </select>
                 <br>
                 <label for="modele">Modèle :</label>
-                <input type="text" id="modele" name="modele" pattern="^[a-zA-Z][0-9]{1,20}$" placeholder="Ex: Clio" required> Uniquement des lettres et 20 max<br>
+                <input type="text" id="modele" name="modele" pattern="^[a-zA-Z0-9]  {1,20}$" placeholder="Ex: Clio" required> Uniquement des lettres et 20 max<br>
               
                 <label for="dateC">Date de première mise en circulation du véhicule :</label>
                 <input type="date" id="dateC" name="dateC" required><br>
