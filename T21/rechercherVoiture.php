@@ -40,7 +40,7 @@ mysqli_close($conn);
 ?>
 <h1>Modifier </h1><br><br>
 
-            <form method="post" action="php/addVehicule.php">
+            <form method="post" action="php/updateVehicule.php">
                 <input type='hidden' id="immatriculation" name="immatriculation" pattern="[0-9]{6}NC" value="<?php echo $immatriculation; ?>" required>
                 
                 <label for="marque">Marque :</label>
