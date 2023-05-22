@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <title>Garage</title>
@@ -125,26 +128,10 @@
             </p>
         </div>
 
-        <div class="test">
-            <div class="test3">
+            <div class="test">
                 <img src="images/raox.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jimmy.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
+                <p>marque</p>
+                <p>imatriculation</p>
 
         </div>
 

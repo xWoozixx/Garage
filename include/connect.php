@@ -16,3 +16,7 @@ if (!$conn) {
 // Passage de la connexion en utf8
 //mysqli_set_charset($cnx, 'utf8');
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 961e6f9cb50603925331751d0f3a3681659c77aa
