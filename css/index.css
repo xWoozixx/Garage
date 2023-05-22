@@ -1,40 +1,52 @@
-/*Règles de base de la page*/
-section *{
-font-size: 20px;
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
-body{
-    background-attachment: fixed;
-    background-color: #bdad9e;
-    padding: 0px;
-    margin: 0px;
-}
-body *{
-    /*border: 1px solid red;/*affiche toutes les boîtes*/
 
-    font-family: 'Ubuntu', sans-serif;/* police et couleur du texte*/
-    color:rgb(0, 0, 0);
-    text-decoration: none;
-    padding: 0px;
-    margin: 0px;
+.test2 {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2em 0;
 }
-.bouton{
-    background-color: rgba(0, 0, 0, 50%);
-    border:2px solid rgb(69, 0, 0);
-    color: rgb(169,0,0);
-    margin: 5px;
-    font-size: 20px;
-    border-radius: 30px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    transition:0.5s;
-    text-decoration:none;
-    font-weight: bold;
+
+.test {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    overflow: auto;
+    margin-bottom: 2em;
+    padding: 1em;
+    text-align: center;
 }
-.bouton:hover{
-    border-color:rgb(255, 0, 0);
-    box-shadow: 0 0 30px rgba(255, 0, 0, 10);
-    background-color: #222;
-    scale: 105%;
-    color:rgb(255, 0, 0);
+
+.test img {
+    max-width: 340px;
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.bouton {
+    background-color: #ff9900;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bouton:hover {
+    background-color: #cc7a00;
+}
+
+.test:not(:last-child) {
+    margin-right: 10px;
 }

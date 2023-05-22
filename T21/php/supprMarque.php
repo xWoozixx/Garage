@@ -1,5 +1,6 @@
 <?php
-include "connect.php";
+require_once "../../include/connect.php";
+session_start();
 
 $supprMarque = mysqli_real_escape_string($conn, $_POST["supprMarque"]);
 
@@ -11,11 +12,12 @@ $MarqueId = mysqli_fetch_assoc($MarqueId)['id'];
 $requete = "DELETE FROM marques WHERE `marques`.`id` = $MarqueId";
 
 if (mysqli_query($conn, $requete)) {
-    header('Location: ../annexes/ajouterRéussi.html');//redirection si ajout réussi
+    $_SESSION['message'] = "Modification effectuée avec succès !";
+    header('Location: ../gestionMarques.php');//redirection si ajout réussi
   } else {
-    echo ($requete);
-    echo "Erreur: " . mysqli_error($conn);
-  }  
-
+    $_SESSION['message'] = "Erreur, voici la requete: ".$requete."Erreur: " . mysqli_error($conn);
+    header('Location: ../gestionMarques.php');
+    exit();
+  }
 mysqli_close($conn);
 ?>
