@@ -78,7 +78,12 @@ mysqli_close($conn);
 
                 <br>
                 <input type="submit" value="Appliquer les modifications">
-              </form>    
+              </form>
+              <form method="post" action="php/delete.php">
+                <input type='hidden' id="immatriculation" name="immatriculation" pattern="[0-9]{6}NC" value="<?php echo $immatriculation; ?>" required>
+                <br>
+                <input type="submit" value="Supprimer le véhicule">
+              </form>
             </div>
         </section>
     </body>
