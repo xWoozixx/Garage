@@ -3,7 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<title>Garage</title>
+<title>Garage 21</title>
 <?php include_once 'include/head.php' ?>
 <?php include_once 'include/header.php' ?>
 
@@ -11,242 +11,41 @@ session_start();
     <section class="test2">
         <?php
         require_once "include/connect.php";
-        // Récupère l'immatriculation saisie dans le formulaire
-        $immatriculation = "212121NC";
+        // Requête SQL pour récupérer toutes les voitures de la table stock
+$requete = "SELECT s.IMMAT, m.nom AS marque, s.modele, s.chevauxF, s.dateCirculation, s.prixVente 
+            FROM stock s 
+            INNER JOIN marques m ON s.marque_id = m.id";
+$resultat = mysqli_query($conn, $requete);
 
-        $requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
-        $resultat = mysqli_query($conn, $requete);
-
-        $row = mysqli_fetch_assoc($resultat);
-
-        $marque_id = $row['marque_id'];
-        //$marque
+// Vérifier si des voitures ont été trouvées
+if (mysqli_num_rows($resultat) > 0) {
+    // Parcourir les résultats et afficher chaque voiture
+    while ($row = mysqli_fetch_assoc($resultat)) {
+        $immatriculation = $row['IMMAT'];
+        $marque = $row['marque'];
         $modele = $row['modele'];
+        $chevauxF = $row['chevauxF'];
         $dateC = $row['dateCirculation'];
         $prixVente = $row['prixVente'];
-        $dateEntreeGarage = $row['dateEntreeGarage'];
-        $chevauxF = $row['chevauxF'];
-        $description = $row['description'];
 
+        // Afficher la voiture dans la structure HTML
+        echo '<div class="test">';
+        echo '<div class="test3">';
+        echo '<img src="images/' . $immatriculation . '.jpg" alt="">';
+        echo '</div>';
+        echo '<p>';
+        echo $marque . ' ' . $modele . '<br><br>chevaux: ' . $chevauxF . '<br><br>mise en circulation: ' .
+            $dateC . '<br><br>' . $immatriculation . '<br><br>prix: ' . $prixVente . ' Fr';
+        echo '</p>';
+        echo '</div>';
+    }
+} else {
+    echo 'Aucune voiture trouvée.';
+}
 
-        $requeteMarques = "SELECT nom FROM `marques` WHERE id = $marque_id";
-        $resultrequete = mysqli_query($conn, $requeteMarques);
-        $listereponses = mysqli_fetch_assoc($resultrequete);
-        $marque = $listereponses['nom'];
-
-
-
-        mysqli_close($conn);
-        ?>
-        <div class="test">
-            <div class="test3">
-                <img src="images/raox.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jimmy.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/multiplat.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jsp.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/raox.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jimmy.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/multiplat.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jsp.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-            <div class="test">
-                <img src="images/raox.jpg" alt="">
-                <p>marque</p>
-                <p>imatriculation</p>
-
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/multiplat.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jsp.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/raox.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jimmy.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/multiplat.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jsp.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/raox.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jimmy.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/multiplat.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
-        <div class="test">
-            <div class="test3">
-                <img src="images/jsp.jpg" alt="">
-            </div>
-            <p>
-                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
-                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
-                    $prixVente . " Fr"; ?>
-            </p>
-        </div>
-
+// Fermer la connexion à la base de données
+mysqli_close($conn);
+?>
     </section>
 
     <script>

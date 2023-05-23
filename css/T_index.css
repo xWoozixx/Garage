@@ -1,0 +1,82 @@
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.haut_de_page,
+.titre_page {
+    padding: 2em 0;
+}
+
+.contenu {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    /* Remplace "width: 20%;" */
+    margin: 2em auto;
+    padding: 1em;
+    text-align: center;
+}
+
+.bouton {
+    background-color: #ff9900;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1em auto;
+}
+
+.bouton:hover,
+.contenu input[type="submit"]:hover,
+button:hover {
+    background-color: #cc7a00;
+}
+
+.contenu form {
+    margin: 2em 0;
+}
+
+.contenu label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.contenu input[type="text"],
+.contenu input[type="password"] {
+    width: 100%;
+    max-width: 50%;
+    /* Nouvelle propriété pour limiter la largeur */
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+
+button {
+    background-color: #ff9900;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+.tooltiptext {
+    opacity: 0;
+}
+
+#message{
+    color: #ff9900;
+}

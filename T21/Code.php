@@ -89,3 +89,59 @@ echo "Bienvenue, $identifiant !";
     $dateEntreeGarage = $row['dateEntreeGarage'];
     $chevauxF = $row['chevauxF'];
     $description = $row['description'];
+
+
+
+
+    index
+
+    // Récupère l'immatriculation saisie dans le formulaire
+        $immatriculation = "212121NC";
+
+        $requete = "SELECT * FROM stock WHERE IMMAT = '$immatriculation'";
+        $resultat = mysqli_query($conn, $requete);
+
+        $row = mysqli_fetch_assoc($resultat);
+
+        $marque_id = $row['marque_id'];
+        //$marque
+        $modele = $row['modele'];
+        $dateC = $row['dateCirculation'];
+        $prixVente = $row['prixVente'];
+        $dateEntreeGarage = $row['dateEntreeGarage'];
+        $chevauxF = $row['chevauxF'];
+        $description = $row['description'];
+
+
+        $requeteMarques = "SELECT nom FROM `marques` WHERE id = $marque_id";
+        $resultrequete = mysqli_query($conn, $requeteMarques);
+        $listereponses = mysqli_fetch_assoc($resultrequete);
+        $marque = $listereponses['nom'];
+
+
+
+        mysqli_close($conn);
+        ?>
+
+        <div class="test">
+            <div class="test3">
+                <img src="images/<?php echo $immatriculation?>.jpg" alt="">
+            </div>
+            <p>
+                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
+                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
+                    $prixVente . " Fr"; ?>
+            </p>
+        </div>
+
+        <div class="test">
+            <div class="test3">
+                <img src="images/jimmy.jpg" alt="">
+            </div>
+            <p>
+                <?php echo $marque . " " . $modele . "<br><br>chevaux: " . $chevauxF .
+                    "<br><br>mise en circulation: " . $dateC . "<br><br>" . $immatriculation . "<br><br>prix: " .
+                    $prixVente . " Fr"; ?>
+            </p>
+
+        </div>
