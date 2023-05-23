@@ -63,7 +63,7 @@ if (!isset($_SESSION["login"])) {
                     placeholder="Ex: 123456NC" required>
                 <span class="tooltiptext"><br>Pour 1 000 NC renseigner 001000NC<br></span>
             </div>
-            <br><br><br>
+            <br>
 
             <label for="marque">Marque :</label>
             <select name="marque" required>
@@ -76,7 +76,7 @@ if (!isset($_SESSION["login"])) {
                 }
                 ?>
             </select>
-            <br><br>
+            <br><br><br>
 
             <div class="tooltip">
                 <label for="modele">Modèle :</label>
@@ -84,7 +84,7 @@ if (!isset($_SESSION["login"])) {
                     required>
                 <span class="tooltiptext"><br>Uniquement des lettres et 20 max<br></span>
             </div>
-            <br><br>
+            <br>
 
             <label for="dateC">Date de première mise en circulation du véhicule :</label>
             <input type="date" id="dateC" name="dateC" required><br>
@@ -95,7 +95,7 @@ if (!isset($_SESSION["login"])) {
                     placeholder="Ex: 1000000" required>
                 <span class="tooltiptext"><br>Uniquement un entier max: 9999999999<br></span>
             </div>
-            <br><br>
+            <br>
 
             <label for="dateEntreeGarage">Date d'entrée au garage :</label>
             <input type="date" id="dateEntreeGarage" name="dateEntreeGarage" required><br>
