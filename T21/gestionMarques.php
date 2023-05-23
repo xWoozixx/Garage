@@ -61,6 +61,6 @@ if (!isset($_SESSION["login"])) {
     </section>
 
 </body>
-<?php include_once '../include/footer.php' ?>
+<?php include_once 'include/T_footer.php' ?>
 
 </html>

@@ -5,7 +5,7 @@
 
   <nav class="menu">
     <ul>      
-      <li><a class="bouton" href="ajouter.php">Ajouter Voiture</a></li>
+      <li><a class="bouton" href="ajouter.php">Gestion Véhicules</a></li>
       <li><a class="bouton" href="gestionMarques.php">Gestion marques</a></li>
     </ul>
   </nav>

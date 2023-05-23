@@ -146,6 +146,6 @@ if (!isset($_SESSION["login"])) {
     </script>
 
 </body>
-<?php include_once '../include/footer.php' ?>
+<?php include_once 'include/T_footer.php' ?>
 
 </html>
