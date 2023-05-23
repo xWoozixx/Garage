@@ -16,4 +16,3 @@ if (!$conn) {
 // Passage de la connexion en utf8
 //mysqli_set_charset($cnx, 'utf8');
 ?>
-

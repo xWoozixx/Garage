@@ -128,10 +128,10 @@ session_start();
             </p>
         </div>
 
-            <div class="test">
-                <img src="images/raox.jpg" alt="">
-                <p>marque</p>
-                <p>imatriculation</p>
+        <div class="test">
+            <img src="images/raox.jpg" alt="">
+            <p>marque</p>
+            <p>imatriculation</p>
 
         </div>
 
@@ -300,4 +300,4 @@ session_start();
 </body>
 <?php include_once 'include/footer.php' ?>
 
-</html> 
+</html>
