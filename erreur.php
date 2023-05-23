@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="stop">STOP</h1>
         <h2>Erreur 404</h2>
-        <p>La page que vous recherchez n'a pas été trouvée.</p>
+        <p>La page que vous recherchez n'a pas été terminer.</p>
     </div>
 </body>
 </html>
