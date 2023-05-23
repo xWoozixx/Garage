@@ -10,11 +10,9 @@ if (!isset($_SESSION["login"])) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
         <title>Garage 21 - Gestion des marques de voitures</title>
         <?php include_once 'include/T_head.php' ?>
         <?php include_once 'include/T_header.php' ?>
-    </head>
     <body id="haut_de_page">
         <section class="contenu">
             <br>
@@ -26,7 +24,8 @@ if (!isset($_SESSION["login"])) {
                     <small>Seules les lettres sont autorisées (20 caractères maximum)</small><br>
                     <input type="submit" value="Ajouter cette marque">
                 </form>
-                <h1 id="message">
+            </div>
+            <h1 id="message">
                     <?php
                     // Afficher un message de succès ou d'erreur après l'ajout de la marque
                     if (isset($_SESSION['message'])) {
@@ -35,7 +34,6 @@ if (!isset($_SESSION["login"])) {
                     }
                     ?>
                 </h1>
-            </div>
             <br><br><br><br>
             <h1>Supprimer une marque de voiture</h1><br>
             <div>
