@@ -25,7 +25,7 @@
         <script>
             function admin() {
               document.getElementById("login").value = "Mabrick";
-              document.getElementById("password").value = "MabrickIsGay";
+              document.getElementById("password").value = "Mabricktest";
             }
             </script>
             </div>
