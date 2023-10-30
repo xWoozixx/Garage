@@ -1,9 +1,9 @@
 <?php
 // Récupération des variables
 $servername = "localhost";
-$username = "root";
+$username = "garage";
 $password = "130103";
-$dbname = "Garage";
+$dbname = "garage";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
