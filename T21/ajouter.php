@@ -39,7 +39,7 @@ if (!isset($_SESSION["login"])) {
             // Appel de la fonction d'initialisation des tooltips
             initTooltips();
         </script>
-        <form method="post" action="php/rechercherVehicule">
+        <form method="post" action="php/rechercherVehicule.php">
             <label for="rechercheImmatriculation">Rechercher par immatriculation :</label>
             <input type="text" id="rechercheImmatriculation" name="rechercheImmatriculation" pattern="[0-9]{6}NC"
                 placeholder="Ex: 123456NC">
