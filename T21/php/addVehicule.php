@@ -2,6 +2,25 @@
 include "../../include/connect.php";
 
 // Récupérer les valeurs du formulaire ET Échapper les caractères spéciaux pour éviter les injections SQL
+if (isset($_FILES['image'])) {
+  $file = $_FILES['image'];
+  $originalName = $file['name'];
+  $tmpFilePath = $file['tmp_name'];
+
+  // Obtenir les informations du véhicule pour générer le nom de fichier
+  $immatriculation = $_POST['immatriculation'];
+
+  // Générer un nom de fichier basé sur les informations du véhicule
+  $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+  $newFileName = $immatriculation . '.' . $extension;
+
+  // Déplacer l'image vers le répertoire de destination avec le nouveau nom
+  $destinationPath = 'C:\wamp64\www\GithubWamp\Garage\images\\' . $newFileName;
+  move_uploaded_file($tmpFilePath, $destinationPath);
+
+  // Enregistrer le chemin de l'image renommée dans votre base de données
+}
+
 $immatriculation = mysqli_real_escape_string($conn, $_POST["immatriculation"]);
 $marque = mysqli_real_escape_string($conn, $_POST["marque"]);
 $modele = mysqli_real_escape_string($conn, $_POST["modele"]);
