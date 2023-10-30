@@ -2,7 +2,7 @@
 // Récupération des variables
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "130103";
 $dbname = "Garage";
 
 // Create connection

@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  if (mysqli_num_rows($resultat) == 1) {
      // Récupérez la ligne de résultat
      $row = mysqli_fetch_assoc($resultat);
-     echo($row["password"]." mypassword ".$password);
+     // echo($row["password"]." mypassword ".$password);
      // Vérifiez le mot de passe
      if (password_verify($password,$row["password"])) {
          // Les informations de connexion sont correctes, démarrez la session et redirigez l'utilisateur vers la page protégée
